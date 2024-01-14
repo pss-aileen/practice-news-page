@@ -40,6 +40,7 @@
     const newData = {
       title: req.body.title ,
       content: req.body.content,
+      category: req.body.category,
       modifiedTime: new Date()
     };
 
