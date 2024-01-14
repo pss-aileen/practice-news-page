@@ -24,8 +24,9 @@ const NewsSchema = new mongoose.Schema({
   },
   category: {
     type: String,
-    required: false,
-    maxLength: [40, "カテゴリーの内容は1000文字以内で入力してください"]
+    required: true,
+    default: "news",
+    maxLength: [30, "カテゴリーの内容は1000文字以内で入力してください"]
   }
 });
 
