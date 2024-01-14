@@ -1,0 +1,47 @@
+@charset "utf-8";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.wrapper {
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+
+/**********************************
+  headeer
+**********************************/
+
+.site-title {
+  line-height: 1;
+}
+
+.site-title__large {
+  font-size: 24px;
+  display: block;
+  margin-top: 80px;
+}
+
+.site-title__small {
+  font-size: 14px;
+  font-weight: normal;
+}
+
+/**********************************
+  main
+**********************************/
+
+
+/**********************************
+  news
+**********************************/
+
+.news-wrapper {
+  margin-top: 48px;
+}

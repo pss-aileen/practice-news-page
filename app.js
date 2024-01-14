@@ -5,8 +5,9 @@
   const app = express();
   const newsRoute = require("./routes/news");
   const connectDB = require("./database/connect");
-  app.use(express.json());
   require("dotenv").config();
+  app.use(express.json());
+  app.use(express.static("./public"));
   
   const PORT = 5050;
 
