@@ -3,21 +3,12 @@
 {
 
   console.log(axios);
-
-  // axios.get("/api/v1/news")
-  //   .then(function (res) {
-  //     console.log(res);
-  //   });
   
   const newsWrapperDOM = document.querySelector(".news-wrapper");
 
   const showAllNews = async () => {
     try {
-      // const params = window.location.serach;
-      // const page = new URLSearchParams(params).get("page");
-
       const { data: news } = await axios.get("api/v1/news");
-      // const { data: news } = await axios.get(`/api/v1/news/${page}`);
       console.log(news);
 
       const allNews = news.map((singleNews) => {
@@ -58,7 +49,6 @@
         const minutes = date.getMinutes();
 
         timeNewsTime.textContent = `${year}年${month}月${day}日 ${hours}時${minutes}分`
-
 
       });
     } catch (err) {
