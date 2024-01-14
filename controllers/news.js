@@ -4,7 +4,6 @@
   const News = require("../models/News");
 
   const getAllNews = async (req, res) => {
-    // res.send("ニュースを全て取得しました");
     try {
       const allNews = await News.find({});
       res.status(200).json(allNews);
@@ -14,7 +13,6 @@
   };
 
   const createNews = async (req, res) => {
-    // res.send("ニュースを投稿しました");
     try {
       const createNews = await News.create(req.body);
       res.status(200).json(createNews);
@@ -24,17 +22,45 @@
   };
 
   const getSingleNews = async (req, res) => {
-    // res.send("特定のニュースを取得しました");
     try {
-      const singleNews = await News.findOne({_id: req.params.id});
+      const singleNews = await News.findOne({ _id: req.params.id });
+      
+      if (!singleNews) {
+        return res.status(404).json(`_id: ${req.params.id} は存在しません。`);
+      }
+
       res.status(200).json(singleNews);
     } catch (err) {
       res.status(500).json(err);
     }
   };
 
-  const updateNews = (req, res) => {
-    res.send("特定のニュースをアップデートしました");
+  const updateNews = async (req, res) => {
+
+    const newData = {
+      title: req.body.title ,
+      content: req.body.content,
+      modifiedTime: new Date()
+    };
+
+    try {
+      const updateNews = await News.findOneAndUpdate(
+        { _id: req.params.id },
+        newData,
+        {
+          new: true
+        }
+      );
+
+      if (!updateNews) {
+        return res.status(404).json(`_id: ${req.params.id} は存在しません。`);
+      }
+
+      res.status(200).json(updateNews);
+    } catch (err) {
+      res.status(500).json(err);
+    }
+
   };
 
   const deleteNews = (req, res) => {
