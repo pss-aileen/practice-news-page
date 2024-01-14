@@ -15,8 +15,8 @@ p {
 }
 
 .wrapper {
-  max-width: 480px;
-  margin: 0 auto;
+  max-width: 640px;
+  margin: 80px auto;
 }
 
 
@@ -25,13 +25,13 @@ p {
 **********************************/
 
 .site-title {
+  margin: 0;
   line-height: 1;
 }
 
 .site-title__large {
   font-size: 24px;
   display: block;
-  margin-top: 80px;
 }
 
 .site-title__small {
@@ -48,9 +48,11 @@ p {
   news
 **********************************/
 
-.news-wrapper {
+.main {
   margin-top: 48px;
 }
+
+.news-wrapper {}
 
 .news {
   padding: 24px;
@@ -105,5 +107,4 @@ p {
 
 .footer {
   margin-top: 48px;
-  /* text-align: center; */
 }

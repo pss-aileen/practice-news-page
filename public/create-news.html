@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>新規投稿 - お知らせ管理画面</title>
+  <link rel="stylesheet" href="css/admin.css">
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <header class="header">
+      <h1 class="site-title">新規投稿</h1>
+    </header>
+    <!-- <nav class="nav">
+      <ul class="nav-list">
+        <li><a href="admin.html" class="nav-btn">記事一覧</a></li>
+        <li><a href="create-news.html" class="nav-btn nav-btn--create-news">新規投稿</a></li>
+      </ul>
+    </nav> -->
+
+    <main class="main">
+      <section class="create-news">
+        <form>
+          <label class="create-news__item">
+            <p class="create-news__title">タイトル</p>
+            <p class="create-news__detail">100文字以内</p>
+            <input type="text" class="create-news__input">
+          </label>
+          <label class="create-news__item">
+            <p class="create-news__title">カテゴリー</p>
+            <p class="create-news__detail">1つ必ず選んでください</p>
+            <select name="" id="" class="create-news__select">
+              <option value="news">news</option>
+              <option value="media">media</option>
+              <option value="event">event</option>
+            </select>
+          </label>
+          <label class="create-news__item">
+            <p class="create-news__title">記事内容</p>
+            <p class="create-news__detail">1,000文字以内</p>
+            <textarea name="" id="" cols="30" rows="10" class="create-news__textarea"></textarea>
+          </label>
+          <div class="create-news__item">
+            <button class="create-news__btn">投稿</button>
+          </div>
+        </form>
+      </section><!--/create-news-->
+      <p class="controlls-message"></p>
+    </main>
+
+    <footer class="footer">
+      <p>
+        <small>&copy; NEWS</small>
+      </p>
+    </footer>
+
+  </div><!--/wrapper-->
+
+
+  <script src="js/admin.js"></script>
+</body>
+
+</html>

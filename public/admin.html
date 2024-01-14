@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>お知らせ管理画面</title>
+  <link rel="stylesheet" href="css/admin.css">
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <header class="header">
+      <h1 class="site-title">
+        <a href="index.html">お知らせ管理画面</a>
+        <a href="index.html">確認</a>
+      </h1>
+    </header>
+    <nav class="nav">
+      <ul class="nav-list">
+        <!-- <li><a href="admin.html" class="nav-btn">記事一覧</a></li> -->
+        <li><a href="create-news.html" class="nav-btn nav-btn--create-news">新規投稿</a></li>
+      </ul>
+    </nav>
+
+    <main class="main">
+      <p class="controlls-message"></p>
+      <table class="news-table">
+        <thead>
+          <tr>
+            <th>日付</th>
+            <th>カテゴリー</th>
+            <th width="50%">タイトル</th>
+            <th>編集</th>
+            <th>削除</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </main>
+
+    <footer class="footer">
+      <p>
+        <small>&copy; NEWS</small>
+      </p>
+    </footer>
+
+  </div><!--/wrapper-->
+
+
+  <script src="js/admin.js"></script>
+</body>
+
+</html>
