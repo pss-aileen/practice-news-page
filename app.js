@@ -14,8 +14,17 @@
     console.log("サーバーを起動しています");
   })
 
-  app.use("/api/v1/news", newsRoute);
+  
+  const start = async () => {
+    try {
+      await connectDB(process.env.MONGODB_URL);
+      app.use("/api/v1/news", newsRoute);
+    } catch (err) {
+      console.log(err);
+    }
+  }
 
-  connectDB(process.env.MONGODB_URL);
+  start();
+
 
 }
