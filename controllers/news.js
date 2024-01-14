@@ -5,8 +5,28 @@
 
   const getAllNews = async (req, res) => {
     try {
-      const allNews = await News.find({});
+      const allNews = await News.find({}).sort({createdTime: -1});
       res.status(200).json(allNews);
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  };
+
+  const getNewsPerPage = async (req, res) => {
+    try {
+      const page = perseInt(req.params.page) || 1;
+      const perPage = 5;
+
+      const newsPerPage = await News.find({})
+        .sort({ createdTime: -1 }
+        .skip((page - 1) * perPage))
+        .limit(perPage);
+      
+      if (!newsPerPage) {
+        return res.status(404).json(`page: ${req.params.page} は存在しません。`);
+      }
+      
+      res.status(200).json(newsPerPage);
     } catch (err) {
       res.status(500).json(err);
     }
@@ -83,6 +103,7 @@
 
   module.exports = {
     getAllNews,
+    getNewsPerPage,
     createNews,
     getSingleNews,
     updateNews,
