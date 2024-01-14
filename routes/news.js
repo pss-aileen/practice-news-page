@@ -6,6 +6,7 @@
   const router = express.Router();
   const {
     getAllNews,
+    getNewsPerPage,
     createNews,
     getSingleNews,
     updateNews,
@@ -15,6 +16,9 @@
 
   // 記事一覧取得
   router.get("/", getAllNews);
+
+  // 10記事ごとにページを生成？
+  router.get("/:page", getNewsPerPage);
 
   // 記事投稿
   router.post("/", createNews);
