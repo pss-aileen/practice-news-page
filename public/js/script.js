@@ -38,7 +38,7 @@
 
         spanNewsCategory.textContent = category;
         h2NewsTitle.textContent = title;
-        pNewsContent.textContent = content;
+        pNewsContent.innerText = content;
 
         const date = new Date(createdTime);
 
