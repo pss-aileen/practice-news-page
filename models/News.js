@@ -8,6 +8,10 @@ const NewsSchema = new mongoose.Schema({
     trim: true,
     maxLength: [100, "お知らせのタイトルは100文字以内で入力してください"]
   },
+  published: {
+    type: Boolean,
+    default: true,
+  },
   createdTime: {
     type: Date,
     // required: true,

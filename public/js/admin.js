@@ -23,10 +23,12 @@
       }
 
       const allNews = news.map((singleNews) => {
-        const { _id, title, content, category, createdTime, modifiedTime } = singleNews;
-
+        const { _id, published, title, content, category, createdTime, modifiedTime } = singleNews;
+        //published
         const tr = document.createElement("tr");
 
+        const tdPublished = document.createElement("td");
+        const spanCondition = document.createElement("span");
         const tdDate = document.createElement("td");
         const tdCategory = document.createElement("td");
         const tdTitle = document.createElement("td");
@@ -37,6 +39,27 @@
         tdCategory.textContent = category;
         tdTitle.textContent = title;
         tdEdit.innerHTML = `<a href="/edit.html?id=${_id}">編集</a>`;
+
+
+        let isCondition;
+        // tdPublished
+        if (published) {
+          isCondition = "公開";
+          spanCondition.classList.add("isPublished");
+        } else {
+          isCondition = "非公開";
+          spanCondition.classList.add("isUnpublished");
+        }
+
+        spanCondition.textContent = isCondition;
+        spanCondition.addEventListener("click", async () => {
+          let userConfirmed;
+          if (published) {
+            userConfirmed = window.confirm(`「${title}」を非公開にしますか？`);
+          } else {
+            userConfirmed = window.confirm(`「${title}」を公開しますか？`);
+          }
+        });
 
         btnDelete.textContent = "削除";
         btnDelete.addEventListener("click", async () => {
@@ -65,6 +88,8 @@
         tdDate.textContent = `${year}年${month}月${day}日`;
 
         tableDOM.appendChild(tr);
+        tr.appendChild(tdPublished);
+        tdPublished.appendChild(spanCondition);
         tr.appendChild(tdDate);
         tr.appendChild(tdCategory);
         tr.appendChild(tdTitle);

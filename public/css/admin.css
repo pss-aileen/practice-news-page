@@ -102,7 +102,16 @@ p {
 }
 
 .news-table td:nth-child(1) {
-  font-size: 14px;
+  text-align: center;
+  font-size: 12px;
+}
+
+.news-table td:nth-child(1) span {
+  display: inline-block;
+  background: rgba(159, 13, 13, 0.1);
+  color: #9f0d0d;
+  padding: 2px 6px;
+  border-radius: 2px;
 }
 
 .news-table td:nth-child(2) {
@@ -114,6 +123,10 @@ p {
 }
 
 .news-table td:nth-child(4) {
+  font-size: 14px;
+}
+
+.news-table td:nth-child(5) {
   font-size: 12px;
   text-align: center;
 
@@ -122,7 +135,7 @@ p {
   }
 }
 
-.news-table td:nth-child(5) {
+.news-table td:nth-child(6) {
   font-size: 12px;
   text-align: center;
 
