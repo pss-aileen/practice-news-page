@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 :root {
-  -text-color-normal: #333;
+  --text-color-normal: #333;
 
   --normal-btn-text-color: ;
   --normal-btn-background-color: ;
@@ -41,6 +41,7 @@ p {
 }
 
 .wrapper {
+  width: calc(100% - 32px);
   max-width: 640px;
   margin: 80px auto;
 }
@@ -149,4 +150,27 @@ p {
 
 .footer {
   margin-top: 48px;
+}
+
+.copyright {}
+
+.copyright__inner {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  justify-content: start;
+  gap: 4px;
+}
+
+.copyright__copy {
+  font-size: 16px;
+}
+
+.footer-menu {
+  font-size: 12px;
+  margin-bottom: 16px;
+
+  a {
+    color: inherit;
+  }
 }

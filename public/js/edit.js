@@ -5,8 +5,8 @@
   console.log(axios);
   const params = window.location.search;
   const id = new URLSearchParams(params).get("id");
-  console.log(params);
-  console.log(id);
+  // console.log(params);
+  // console.log(id);
 
   const newsSectionDOM = document.querySelector(".create-news");
   const titleDOM = document.querySelector(".create-news__input");
@@ -42,7 +42,6 @@
         category: cetegoryDOM.value,
         content: contentDOM.value,
         published: publishedDOM.value
-
       }
       const savedNews = await axios.patch(`api/v1/news/${id}`, news);
       
