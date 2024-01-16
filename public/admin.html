@@ -12,21 +12,28 @@
 <body>
 
   <header class="header">
-    <h1 class="site-title">
-      <a href="index.html">お知らせ管理画面</a>
-      <a href="index.html">確認</a>
-    </h1>
+    <div class="header__inner">
+      <h1 class="site-title">
+        <a href="admin.html">お知らせ管理画面</a>
+      </h1>
+      <nav class="nav">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-btn" target="_blank">ページ確認</a></li>
+          <li><a href="admin.html" class="nav-btn">投稿一覧</a></li>
+          <li><a href="create-news.html" class="nav-btn nav-btn--create-news">新規投稿</a></li>
+        </ul>
+      </nav>
+    </div><!--/header__inner-->
   </header>
-  <nav class="nav">
-    <ul class="nav-list">
-      <!-- <li><a href="admin.html" class="nav-btn">記事一覧</a></li> -->
-      <li><a href="create-news.html" class="nav-btn nav-btn--create-news">新規投稿</a></li>
-    </ul>
-  </nav>
 
   <div class="wrapper">
 
     <main class="main">
+      <h2>投稿一覧</h2>
+      <!-- 以下後回し -->
+      <!-- <section class="news-dashboard">
+        記事一覧(20)｜公開中(2)｜非公開(1)
+      </section> -->
       <p class="controlls-message"></p>
       <table class="news-table">
         <thead>

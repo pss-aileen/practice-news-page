@@ -38,12 +38,14 @@
         const spanCondition = document.createElement("span");
         const tdDate = document.createElement("td");
         const tdCategory = document.createElement("td");
+        const spanCategory = document.createElement("span");
         const tdTitle = document.createElement("td");
         const tdEdit = document.createElement("td");
         const tdDelete = document.createElement("td");
         const btnDelete = document.createElement("button");
 
-        tdCategory.textContent = category;
+        spanCategory.textContent = category;
+        spanCategory.classList.add(`category--${category}`);
         tdTitle.textContent = title;
         tdEdit.innerHTML = `<a href="/edit.html?id=${_id}">編集</a>`;
 
@@ -67,7 +69,7 @@
               return;
             }
             isCondition = "非公開";
-            messageDOM.textContent = `「${title}を非公開にしました。」`;
+            messageDOM.textContent = `「${title}」を非公開にしました。`;
             // クラスの追加と統一化をしたい〜緑＝公開、非公開＝青
             // 削除は赤
             newPublished = false;
@@ -122,15 +124,18 @@
 
         const date = new Date(createdTime);
         const year = date.getFullYear();
-        const month = date.getMonth() + 1;
-        const day = date.getDate();
-        tdDate.textContent = `${year}年${month}月${day}日`;
+        const month = String(date.getMonth() + 1).padStart(2, "0");
+        const day = String(date.getDate()).padStart(2, "0");
+        const hours = String(date.getHours()).padStart(2, "0");
+        const minutes = String(date.getMinutes()).padStart(2, "0");
+        tdDate.innerText = `${year}/${month}/${day} ${hours}:${minutes}`;
 
         tableDOM.appendChild(tr);
         tr.appendChild(tdPublished);
         tdPublished.appendChild(spanCondition);
         tr.appendChild(tdDate);
         tr.appendChild(tdCategory);
+        tdCategory.appendChild(spanCategory);
         tr.appendChild(tdTitle);
         tr.appendChild(tdEdit);
         tr.appendChild(tdDelete);
