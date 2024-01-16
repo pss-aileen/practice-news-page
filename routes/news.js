@@ -22,7 +22,7 @@
   router.get("/published/", getAllPublishedNews);
 
   // 10記事ごとにページを生成？
-  router.get("/:page", getNewsPerPage);
+  // router.get("/:page", getNewsPerPage);
 
   // 記事投稿
   router.post("/", createNews);

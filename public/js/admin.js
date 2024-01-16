@@ -6,20 +6,6 @@
   const tableDOM = document.querySelector(".news-table tbody");
   const messageDOM = document.querySelector(".controlls-message");
 
-  const updateNews = async (id, isPublished) => {
-    const newData = {
-      modifiedTime: new Date(),
-      isPublished: isPublished
-    };
-
-    try {
-      await axios.patch(`api/v1/news/${id}`);
-      console.log("公開状態を変更しました。")
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
   const showAllNews = async () => {
     try {
       const { data: news } = await axios.get("/api/v1/news");

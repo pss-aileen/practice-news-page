@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>編集 - お知らせ管理画面</title>
+  <link rel="stylesheet" href="css/admin.css">
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+
+  <header class="header">
+    <div class="header__inner">
+      <h1 class="site-title">
+        <a href="admin.html">お知らせ管理画面</a>
+      </h1>
+      <nav class="nav">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-btn" target="_blank">ページ確認</a></li>
+          <li><a href="admin.html" class="nav-btn">投稿一覧</a></li>
+          <li><a href="create-news.html" class="nav-btn nav-btn--create-news">新規投稿</a></li>
+        </ul>
+      </nav>
+    </div><!--/header__inner-->
+  </header>
+
+  <div class="wrapper">
+    <h2>編集</h2>
+    <main class="main">
+      <section class="create-news">
+        <form id="create-news-form">
+          <label class="create-news__item">
+            <p class="create-news__title">タイトル</p>
+            <p class="create-news__detail" name="title">100文字以内</p>
+            <input type="text" class="create-news__input">
+          </label>
+          <label class="create-news__item">
+            <p class="create-news__title">カテゴリー</p>
+            <p class="create-news__detail">1つ必ず選んでください</p>
+            <select name="" id="" class="create-news__select">
+              <option value="news">news</option>
+              <option value="media">media</option>
+              <option value="event">event</option>
+            </select>
+          </label>
+          <label class="create-news__item">
+            <p class="create-news__title">記事内容</p>
+            <p class="create-news__detail">1,000文字以内</p>
+            <textarea name="" id="" cols="30" rows="10" class="create-news__textarea"></textarea>
+          </label>
+          <label class="create-news__item">
+            <p class="create-news__title">公開状態</p>
+            <select name="" id="published" class="create-news__select">
+              <option value="true">公開</option>
+              <option value="false">非公開</option>
+            </select>
+          </label>
+          <div class="create-news__item">
+            <button class="create-news__btn create-news__btn--create">編集を保存</button>
+          </div>
+        </form>
+      </section><!--/create-news-->
+      <p class="controlls-message"></p>
+    </main>
+
+    <footer class="footer">
+      <p>
+        <small>&copy; NEWS</small>
+      </p>
+    </footer>
+
+  </div><!--/wrapper-->
+
+
+  <script src="js/edit.js"></script>
+</body>
+
+</html>
