@@ -11,6 +11,11 @@
       const { data: news } = await axios.get("/api/v1/news/published");
       console.log(news);
 
+      if (news.length === 0) {
+        newsWrapperDOM.textContent = "まだNEWSがありません。";
+        return;
+      }
+
       const allNews = news.map((singleNews) => {
         const { _id, title, content, category, createdTime, modifiedTime, published } = singleNews;
         console.log(_id, title, category, content, createdTime, modifiedTime, published);
