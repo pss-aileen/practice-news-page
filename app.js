@@ -18,7 +18,7 @@
     try {
       await connectDB(process.env.MONGODB_URL);
       
-      app.listen(PORT, () => {
+      app.listen(process.env.PORT || PORT, () => {
         console.log("サーバーを起動しています");
       })
     } catch (err) {
