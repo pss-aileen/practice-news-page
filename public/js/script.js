@@ -53,7 +53,7 @@
         const hours = date.getHours();
         const minutes = date.getMinutes();
 
-        timeNewsTime.textContent = `${year}年${month}月${day}日 ${hours}時${minutes}分`
+        timeNewsTime.textContent = `${year}年${month}月${day}日 ${hours}時${minutes}分`;
 
       });
     } catch (err) {

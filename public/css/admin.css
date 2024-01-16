@@ -15,7 +15,7 @@ p {
 }
 
 .wrapper {
-  margin: 80px auto;
+  margin: 32px auto;
   max-width: 800px;
   width: calc(100% - 32px);
 }
@@ -25,19 +25,38 @@ p {
   headeer
 **********************************/
 
-.header {}
+.header {
+  border-bottom: 1px solid #ccc;
+}
+
+.header__inner {
+  padding: 8px 0;
+  max-width: 800px;
+  width: calc(100% - 32px);
+  margin: 0 auto;
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  justify-content: space-between;
+}
 
 .site-title {
-  font-size: 24px;
+  font-size: 16px;
   margin: 0;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
 }
+
 
 /**********************************
   nav
 **********************************/
 
 .nav {
-  margin-top: 32px;
+  /* margin-top: 32px; */
 }
 
 .nav-list {
@@ -55,7 +74,7 @@ p {
   color: inherit;
   text-decoration: none;
   padding: 4px 16px;
-  font-size: 14px;
+  font-size: 12px;
   background: #333;
   color: #f8f8f8;
   border-radius: 4px;
@@ -102,15 +121,20 @@ p {
   /* text-align-last: left; */
 }
 
+.news-table td {}
+
 .news-table td:nth-child(1) {
   text-align: center;
   font-size: 12px;
+  min-width: 72px;
 }
 
 .news-table td:nth-child(1) span {
   display: inline-block;
   padding: 2px 6px;
   border-radius: 2px;
+  cursor: pointer;
+  user-select: none;
 }
 
 .news-table td:nth-child(1) span.isPublished {
@@ -125,23 +149,50 @@ p {
   background: rgba(13, 98, 159, 0.1);
 }
 
-
-
 .news-table td:nth-child(2) {
-  font-size: 14px;
+  text-align: center;
+  font-size: 12px;
+  min-width: 136px;
 }
 
 .news-table td:nth-child(3) {
-  font-size: 14px;
+  text-align: center;
+  font-size: 12px;
+  min-width: 80px;
+}
+
+.news-table td:nth-child(3) span {
+  display: inline-block;
+  padding: 2px 6px;
+  border-radius: 2px;
+}
+
+.news-table td:nth-child(3) span.category--news {
+  /* color: rgb(110, 110, 110);
+  background: rgba(110, 110, 110, 0.1); */
+  color: rgb(226, 16, 107);
+  background: rgba(226, 16, 107, 0.1);
+}
+
+.news-table td:nth-child(3) span.category--media {
+  color: rgb(16, 149, 226);
+  background: rgba(16, 149, 226, 0.1);
+}
+
+.news-table td:nth-child(3) span.category--event {
+  color: rgba(226, 149, 16, 1);
+  background: rgba(226, 149, 16, 0.1);
 }
 
 .news-table td:nth-child(4) {
   font-size: 14px;
+  vertical-align: top;
 }
 
 .news-table td:nth-child(5) {
   font-size: 12px;
   text-align: center;
+  min-width: 48px;
 
   a {
     color: #0d629f;
@@ -151,6 +202,7 @@ p {
 .news-table td:nth-child(6) {
   font-size: 12px;
   text-align: center;
+  min-width: 48px;
 
   button {
     all: unset;
