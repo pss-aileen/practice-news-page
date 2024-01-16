@@ -108,11 +108,23 @@ p {
 
 .news-table td:nth-child(1) span {
   display: inline-block;
-  background: rgba(159, 13, 13, 0.1);
-  color: #9f0d0d;
   padding: 2px 6px;
   border-radius: 2px;
 }
+
+.news-table td:nth-child(1) span.isPublished {
+  color: #4f9f0d;
+  background: rgba(79, 159, 13, 0.1)
+    /* color: #9f0d0d;
+  background: rgba(159, 13, 13, 0.1); */
+}
+
+.news-table td:nth-child(1) span.isUnpublished {
+  color: #0d629f;
+  background: rgba(13, 98, 159, 0.1);
+}
+
+
 
 .news-table td:nth-child(2) {
   font-size: 14px;

@@ -12,6 +12,16 @@
     }
   };
 
+  const getAllPublishedNews = async (req, res) => {
+    try {
+      const allPublishdNews = await News.find({ published: true })
+        .sort({ createdTime: -1 });
+      res.status(200).json(allPublishdNews);
+    } catch (err) {
+      res.status(500).json(err);
+      }
+  };
+
   const getNewsPerPage = async (req, res) => {
     try {
       const page = perseInt(req.params.page) || 1;
@@ -61,6 +71,7 @@
       title: req.body.title ,
       content: req.body.content,
       category: req.body.category,
+      published: req.body.published,
       modifiedTime: new Date()
     };
 
@@ -103,6 +114,7 @@
 
   module.exports = {
     getAllNews,
+    getAllPublishedNews,
     getNewsPerPage,
     createNews,
     getSingleNews,
