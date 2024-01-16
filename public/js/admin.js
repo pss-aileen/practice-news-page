@@ -5,9 +5,15 @@
 
   const tableDOM = document.querySelector(".news-table tbody");
 
-  const deleteSingleNews = async () => {
-    try {
+  const updateNews = async (id, isPublished) => {
+    const newData = {
+      modifiedTime: new Date(),
+      isPublished: isPublished
+    };
 
+    try {
+      await axios.patch(`api/v1/news/${id}`);
+      console.log("公開状態を変更しました。")
     } catch (err) {
       console.log(err);
     }
@@ -15,7 +21,7 @@
 
   const showAllNews = async () => {
     try {
-      const { data: news } = await axios.get("api/v1/news");
+      const { data: news } = await axios.get("/api/v1/news");
       console.log(news);
 
       while (tableDOM.firstChild) {
@@ -40,7 +46,6 @@
         tdTitle.textContent = title;
         tdEdit.innerHTML = `<a href="/edit.html?id=${_id}">編集</a>`;
 
-
         let isCondition;
         // tdPublished
         if (published) {
@@ -50,14 +55,42 @@
           isCondition = "非公開";
           spanCondition.classList.add("isUnpublished");
         }
-
         spanCondition.textContent = isCondition;
+
         spanCondition.addEventListener("click", async () => {
           let userConfirmed;
+          let newPublished;
           if (published) {
             userConfirmed = window.confirm(`「${title}」を非公開にしますか？`);
+            if (!userConfirmed) {
+              return;
+            }
+            isCondition = "非公開";
+            newPublished = false;
+            spanCondition.classList.remove("isPublished");
+            spanCondition.classList.add("isUnpublished");
           } else {
             userConfirmed = window.confirm(`「${title}」を公開しますか？`);
+            if (!userConfirmed) {
+              return;
+            }
+            isCondition = "公開";
+            newPublished = true;
+            spanCondition.classList.remove("isUnpublished");
+            spanCondition.classList.add("isPublished");
+          }
+          spanCondition.textContent = isCondition;
+
+          const newData = {
+            modifiedTime: new Date(),
+            published: newPublished
+          };
+      
+          try {
+            await axios.patch(`api/v1/news/${_id}`, newData);
+            console.log("公開状態を変更しました。")
+          } catch (err) {
+            console.log(err);
           }
         });
 

@@ -8,12 +8,12 @@
 
   const showAllNews = async () => {
     try {
-      const { data: news } = await axios.get("api/v1/news");
+      const { data: news } = await axios.get("/api/v1/news/published");
       console.log(news);
 
       const allNews = news.map((singleNews) => {
-        const { _id, title, content, category, createdTime, modifiedTime } = singleNews;
-        console.log(_id, title, category, content, createdTime, modifiedTime);
+        const { _id, title, content, category, createdTime, modifiedTime, published } = singleNews;
+        console.log(_id, title, category, content, createdTime, modifiedTime, published);
 
         const sectionNews = document.createElement("section");
         const divNewsInfo = document.createElement("div");
