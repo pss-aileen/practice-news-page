@@ -1,5 +1,31 @@
 @charset "utf-8";
 
+:root {
+  -text-color-normal: #333;
+
+  --normal-btn-text-color: ;
+  --normal-btn-background-color: ;
+
+  --controlles-message-delete: #9f0d0d;
+  --controlles-message-published: ;
+  --controlles-message-unpublished: ;
+
+  --news-control-edit-text-color: #0d629f;
+  --news-control-delete-text-color: #9f0d0d;
+
+  --published-text-color: #4f9f0d;
+  --published-background-color: rgba(79, 159, 13, 0.1);
+  --unpublished-text-color: #0d629f;
+  --unpublished-background-color: rgba(13, 98, 159, 0.1);
+
+  --news-text-color: rgb(226, 16, 107);
+  --news-background-color: rgba(226, 16, 107, 0.1);
+  --media-text-color: rgb(16, 149, 226);
+  --media-background-color: rgba(16, 149, 226, 0.1);
+  --event-text-color: rgba(226, 149, 16, 1);
+  --event-background-color: rgba(226, 149, 16, 0.1);
+}
+
 * {
   box-sizing: border-box;
 }
@@ -104,6 +130,22 @@ p {
   font-size: 14px;
   line-height: 1.8;
 }
+
+.category--news {
+  color: var(--news-text-color);
+  background: var(--news-background-color);
+}
+
+.category--media {
+  color: var(--media-text-color);
+  background: var(--media-background-color);
+}
+
+.category--event {
+  color: var(--event-text-color);
+  background: var(--event-background-color);
+}
+
 
 .footer {
   margin-top: 48px;
