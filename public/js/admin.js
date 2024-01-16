@@ -4,6 +4,7 @@
   console.log(axios);
 
   const tableDOM = document.querySelector(".news-table tbody");
+  const messageDOM = document.querySelector(".controlls-message");
 
   const updateNews = async (id, isPublished) => {
     const newData = {
@@ -66,6 +67,9 @@
               return;
             }
             isCondition = "非公開";
+            messageDOM.textContent = `「${title}を非公開にしました。」`;
+            // クラスの追加と統一化をしたい〜緑＝公開、非公開＝青
+            // 削除は赤
             newPublished = false;
             spanCondition.classList.remove("isPublished");
             spanCondition.classList.add("isUnpublished");
@@ -75,6 +79,7 @@
               return;
             }
             isCondition = "公開";
+            messageDOM.textContent = `「${title}」を公開しました。`;
             newPublished = true;
             spanCondition.classList.remove("isUnpublished");
             spanCondition.classList.add("isPublished");
@@ -88,6 +93,7 @@
       
           try {
             await axios.patch(`api/v1/news/${_id}`, newData);
+            showAllNews();
             console.log("公開状態を変更しました。")
           } catch (err) {
             console.log(err);
@@ -102,7 +108,7 @@
           if (userConfirmed) {
             try {
               await axios.delete(`api/v1/news/${_id}`);
-              const messageDOM = document.querySelector(".controlls-message");
+              
               messageDOM.textContent = `「${title}」を削除しました。`;
               messageDOM.classList.add("delete");
               showAllNews();
